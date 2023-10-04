@@ -56,9 +56,13 @@ public class GerenciamentoConta extends Interface.Interface {
             if (item.getEmail().equalsIgnoreCase(login.getEmailLogado())) {
                 for (Conta itemA : contas) {
                     if (itemA.getEmail().equalsIgnoreCase(nome)) {
-                        item.setSaque(pix);
-                        itemA.setDeposito(pix);
-                        System.out.println("Pix realizado com sucesso!");
+                        if(item.getSaldo() < pix) {
+                            System.out.println("Saldo insuficiente.");
+                        } else {
+                            item.setSaque(pix);
+                            itemA.setDeposito(pix);
+                            System.out.println("Pix realizado com sucesso!");
+                        }
                     }
                 }
             }
