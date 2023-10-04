@@ -6,6 +6,8 @@ public class Conta {
 
     private Double saldo;
 
+    private String emailLogado;
+
     public Conta(String email, String senha, Double saldo) {
         this.email = email;
         this.senha = senha;
@@ -37,5 +39,13 @@ public class Conta {
 
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+
+    public String getEmailLogado() {
+        return emailLogado;
+    }
+
+    public void setEmailLogado(String emailLogado) {
+        this.emailLogado = emailLogado;
     }
 }

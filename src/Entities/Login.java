@@ -40,6 +40,7 @@ public class Login {
         for (Conta item: contas) {
             if(item.getEmail().equalsIgnoreCase(email) && item.getSenha().equalsIgnoreCase(senha)) {
                 System.out.println("Login feito com sucesso!");
+                item.setEmailLogado(email);
                 vF = true;
             }
             else if(item.getEmail().equalsIgnoreCase(email) && !item.getSenha().equalsIgnoreCase(senha)) {
