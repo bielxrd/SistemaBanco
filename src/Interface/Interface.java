@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Interface {
     static ArrayList<Conta> contas = new ArrayList<>();
     static Ui interacao = new Ui();
-    static Login login = new Login();
+    static public Login login = new Login();
     static GerenciamentoConta gerenciamento = new GerenciamentoConta();
 
     public void exibirInterface() {
@@ -23,9 +23,9 @@ public class Interface {
                 login.criarConta(contas);
 
             } else if (opcao == 2) {
-                boolean vF = login.fazerLogin(contas);
+                login.fazerLogin(contas);
 
-                if (vF) {
+                if (login.isvF()) {
                     do {
                         opcaoLogin = interacao.menuContas();
 
@@ -39,7 +39,7 @@ public class Interface {
                             gerenciamento.exibirSaldo(contas);
 
                         } else if (opcaoLogin == 4) {
-
+                            gerenciamento.realizarPix(contas);
 
                         }
                     } while (opcaoLogin != 0);
