@@ -7,7 +7,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Login {
+    private String emailLogado;
+    private boolean vF;
     static Scanner ler = new Scanner(System.in);
+
+    public Login(String emailLogado, boolean vF) {
+        this.emailLogado = emailLogado;
+        this.vF = vF;
+    }
+    public Login() {}
+
 
     public void criarConta(ArrayList<Conta> contas) {
         Ui interacao = new Ui();
@@ -29,7 +38,7 @@ public class Login {
         }
 
     }
-    public boolean fazerLogin(ArrayList<Conta> contas) {
+    public Login fazerLogin(ArrayList<Conta> contas) {
         boolean vF = false;
         System.out.println("Tela de LOGIN!");
         System.out.println("Informe o email para login");
@@ -40,18 +49,32 @@ public class Login {
         for (Conta item: contas) {
             if(item.getEmail().equalsIgnoreCase(email) && item.getSenha().equalsIgnoreCase(senha)) {
                 System.out.println("Login feito com sucesso!");
-                item.setEmailLogado(email);
-                vF = true;
+                setEmailLogado(email);
+                setvF(true);
             }
             else if(item.getEmail().equalsIgnoreCase(email) && !item.getSenha().equalsIgnoreCase(senha)) {
                 System.out.println("Senha incorreta.");
-                vF = false;
-            }
-            else {
-                System.out.println("Login nao existe.");
+                setvF(false);
             }
 
+
         }
+        return new Login();
+    }
+
+    public String getEmailLogado() {
+        return emailLogado;
+    }
+
+    public void setEmailLogado(String emailLogado) {
+        this.emailLogado = emailLogado;
+    }
+
+    public boolean isvF() {
         return vF;
+    }
+
+    public void setvF(boolean vF) {
+        this.vF = vF;
     }
 }
