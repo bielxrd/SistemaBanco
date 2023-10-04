@@ -1,6 +1,7 @@
 package Interface;
 
 import Entities.Conta;
+import Entities.GerenciamentoConta;
 import Entities.Login;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class Interface {
     static ArrayList<Conta> contas = new ArrayList<>();
     static Ui interacao = new Ui();
     static Login login = new Login();
+    static GerenciamentoConta gerenciamento = new GerenciamentoConta();
 
     public void exibirInterface() {
         int opcao = 0;
@@ -28,12 +30,13 @@ public class Interface {
                         opcaoLogin = interacao.menuContas();
 
                         if (opcaoLogin == 1) {
+                            gerenciamento.sacar(contas);
 
                         } else if (opcaoLogin == 2) {
-
+                            gerenciamento.depositar(contas);
 
                         } else if (opcaoLogin == 3) {
-
+                            gerenciamento.exibirSaldo(contas);
 
                         } else if (opcaoLogin == 4) {
 
